@@ -15,6 +15,9 @@ public class Main {
         do {
             System.out.println("=======================================");
             System.out.println("= 1. Agregar Nodo  =");
+            System.out.println("= 2. in Orden      =");
+            System.out.println("= 3. pre Orden    =");
+            System.out.println("= 4. post Orden    =");
             System.out.println("=======================================");
             try {
                 opcion = teclado.nextInt();
@@ -25,6 +28,26 @@ public class Main {
                         System.out.println("Ingresar nombre del elemento");
                         nombre = teclado.next();
                         arbolito.agregarNodo(elemento,nombre);
+                        break;
+                    case 2:
+                        if (!arbolito.estaVacio()){
+                            arbolito.inOrden(arbolito.raiz);
+                        }else{
+                            System.out.println("El arbol estab vacio");
+                        }
+                    case 3:
+                        if (!arbolito.estaVacio()){
+                            arbolito.preOrden(arbolito.raiz);
+                        }else{
+                            System.out.println("El arbol estab vacio");
+                        }
+                        break;
+                    case 4:
+                        if (!arbolito.estaVacio()){
+                            arbolito.postOrden(arbolito.raiz);
+                        }else{
+                            System.out.println("El arbol estab vacio");
+                        }
                         break;
                 }
             } catch (Exception e) {

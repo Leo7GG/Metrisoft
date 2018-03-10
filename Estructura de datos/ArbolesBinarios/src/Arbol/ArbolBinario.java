@@ -42,4 +42,18 @@ public class ArbolBinario {
 			inOrden(r.hijoDerecho);
 		}
 	}
+	public void preOrden (NodoArbol r){
+		if (r!=null){
+			System.out.println(r.dato + ",");
+			preOrden(r.hijoIzquierdo);
+			preOrden(r.hijoDerecho);
+		}
+	}
+	public void postOrden (NodoArbol r){
+		if (r!=null){
+			preOrden(r.hijoIzquierdo);
+			preOrden(r.hijoDerecho);
+			System.out.println(r.dato + ",");
+		}
+	}
 }
