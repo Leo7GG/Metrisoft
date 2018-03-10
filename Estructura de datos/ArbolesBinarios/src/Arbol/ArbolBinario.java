@@ -31,4 +31,15 @@ public class ArbolBinario {
 			}
 		}
 	}
+
+	public boolean estaVacio(){
+		return raiz==null;
+	}
+	public void inOrden (NodoArbol r){
+		if (r!=null){
+			inOrden(r.hijoIzquierdo);
+			System.out.println(r.dato + ",");
+			inOrden(r.hijoDerecho);
+		}
+	}
 }
