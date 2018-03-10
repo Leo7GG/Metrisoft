@@ -35,6 +35,7 @@ public class Main {
                         }else{
                             System.out.println("El arbol estab vacio");
                         }
+                        break;
                     case 3:
                         if (!arbolito.estaVacio()){
                             arbolito.preOrden(arbolito.raiz);
