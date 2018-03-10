@@ -1,2 +1,7 @@
-hola mundo utcv
+El repositorio esta listo, si le es util descargen 
+github para escritorio 
+
+link de descarga: https://desktop.github.com/
+
+No olviden hacer commit al modificar y cargar sus modificaciones 
 
