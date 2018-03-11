@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1099.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorRegistroProyecto">
+   <bottom>
+      <Pane prefHeight="25.0" prefWidth="1099.0" style="-fx-background-color: #0B2F3A;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblMensaje" layoutX="14.0" layoutY="11.0" textFill="WHITE" />
+         </children>
+      </Pane>
+   </bottom>
+   <left>
+      <Pane prefHeight="534.0" prefWidth="20.0" style="-fx-background-color: #0B2F3A;" BorderPane.alignment="CENTER" />
+   </left>
+   <top>
+      <ToolBar prefHeight="71.0" prefWidth="949.0" BorderPane.alignment="CENTER">
+        <items>
+          <Button fx:id="btnNuevo" contentDisplay="TOP" mnemonicParsing="false" onAction="#clickNuevo" style="-fx-background-color: transparent;" text="Nuevo">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../apv2/src/vista/iconos/plus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnGuardar" contentDisplay="TOP" mnemonicParsing="false" onAction="#clickGuardar" style="-fx-background-color: transparent;" text="Nuevo">
+               <font>
+                  <Font size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../apv3/src/vista/iconos/save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnEliminar" contentDisplay="TOP" layoutX="72.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickEliminar" style="-fx-background-color: transparent;" text="Eliminar">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../apv2/src/vista/iconos/eraser.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnModificar" contentDisplay="TOP" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickModificar" style="-fx-background-color: transparent;" text="Modificar">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../apv2/src/vista/iconos/refresh.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCancelar" contentDisplay="TOP" layoutX="215.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickCancelar" style="-fx-background-color: transparent;" text="Cancelar">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../apv3/src/vista/iconos/error.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnReporte" contentDisplay="TOP" layoutX="272.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickReporte" style="-fx-background-color: transparent;" text="Reporte">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../apv2/src/vista/iconos/analytics.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnCerrarR" contentDisplay="TOP" mnemonicParsing="false" onAction="#cerrarReporte" prefHeight="0.0" prefWidth="10.0" style="-fx-background-color: transparent;" text="X">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../apv2/src/vista/iconos/analytics.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+        </items>
+      </ToolBar>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.4336118848653668" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="525.0" prefWidth="523.0">
+               <children>
+                  <GridPane fx:id="gridfField" layoutX="11.0" layoutY="20.0" prefHeight="483.0" prefWidth="445.0">
+                     <children>
+                        <Label text="Descripcion :" GridPane.rowIndex="8" />
+                        <Label text="Objetivos:" GridPane.rowIndex="6" />
+                        <Label text="Nombre :" />
+                        <Label text="Cliente :" GridPane.rowIndex="2" />
+                        <Label text="Inicio :" GridPane.rowIndex="5" />
+                        <Label text="Final :" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                        <Label prefHeight="17.0" prefWidth="110.0" text="Ciclo de vida :" GridPane.rowIndex="4" />
+                        <Label text="Otros :" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                        <Label text="Lider :" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <Label text="Tarifa :" GridPane.rowIndex="1" />
+                        <Label text="Herramientas :" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                        <TextArea fx:id="txaDescripcion" prefHeight="46.0" prefWidth="199.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <TextArea fx:id="txaObjetivos" prefHeight="110.0" prefWidth="188.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="txtNombre" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtTarifa" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="cbCliente" prefHeight="25.0" prefWidth="205.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="cbCiclo" prefHeight="25.0" prefWidth="204.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="cbLider" prefHeight="25.0" prefWidth="201.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                        <DatePicker fx:id="dtInicio" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <DatePicker fx:id="dtFin" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                        <TextArea fx:id="txaHer" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                        <TextArea fx:id="txaOtros" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                        <TextField fx:id="txtId" visible="false" GridPane.columnIndex="4" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="90.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="140.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="8.0" prefWidth="8.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="86.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="145.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="38.0" minHeight="20.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="40.0" minHeight="20.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="97.0" minHeight="8.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="113.0" minHeight="0.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="281.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="275.0" minHeight="13.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="270.0" minHeight="10.0" prefHeight="119.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="212.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="238.0" minHeight="10.0" prefHeight="145.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="tvProyectos" layoutX="1.0" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="459.0" prefWidth="608.0">
+                    <columns>
+                      <TableColumn fx:id="clNombre" prefWidth="143.0" text="NOMBRE" />
+                      <TableColumn fx:id="clInicio" prefWidth="82.0" text="INICIO" />
+                        <TableColumn fx:id="clFinal" prefWidth="90.0" text="FIN" />
+                        <TableColumn fx:id="clCliente" prefWidth="150.0" text="CLIENTE" />
+                        <TableColumn fx:id="clLider" prefWidth="194.0" text="LIDER " />
+                    </columns>
+                  </TableView>
+                  <CheckBox fx:id="ckbInactivos" layoutY="490.0" mnemonicParsing="false" onAction="#clickInactivos" text="Restaurar" />
+                  <TextField fx:id="txtBusqueda" layoutX="48.0" layoutY="2.0" onKeyReleased="#textChange_busqueda" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </center>
+</BorderPane>

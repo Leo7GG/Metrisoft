@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorCliente">
+   <center>
+      <Pane prefHeight="390.0" prefWidth="606.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="108.0" layoutY="41.0" text="Nombre(s)" />
+            <TextField fx:id="txtNombre" disable="true" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="242.0" />
+            <TextField fx:id="txtAP" disable="true" layoutX="14.0" layoutY="64.0" prefHeight="27.0" prefWidth="242.0" />
+            <TextField fx:id="txtAM" disable="true" layoutX="14.0" layoutY="121.0" prefHeight="27.0" prefWidth="242.0" />
+            <TextField fx:id="txtDomicilio" disable="true" layoutX="275.0" layoutY="12.0" prefHeight="27.0" prefWidth="239.0" />
+
+            <Label layoutX="83.0" layoutY="91.0" text="Apellido Paterno" />
+            <Label layoutX="81.0" layoutY="148.0" text="Apellido Materno" />
+            <Label layoutX="366.0" layoutY="39.0" text="Domicilio" />
+            <TableView fx:id="tvcliente" disable="true" layoutX="13.0" layoutY="218.0" onMouseClicked="#clickTableView" prefHeight="285.0" prefWidth="765.0">
+              <columns>
+                <TableColumn prefWidth="122.0" text="NOMBRES(S)">
+                		<cellValueFactory>
+                			<PropertyValueFactory property="nombre" />
+                		</cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="0.0" prefWidth="124.0" text="PATERNO">
+                		<cellValueFactory>
+                			<PropertyValueFactory property="paterno" />
+                		</cellValueFactory>
+                </TableColumn>
+                  <TableColumn minWidth="0.0" prefWidth="154.0" text="MATERNO">
+                		<cellValueFactory>
+                			<PropertyValueFactory property="materno" />
+                		</cellValueFactory>
+                </TableColumn>
+                  <TableColumn minWidth="0.0" prefWidth="107.0" text="TELÉFONO">
+                		<cellValueFactory>
+                			<PropertyValueFactory property="telefono" />
+                		</cellValueFactory>
+                </TableColumn>
+                  <TableColumn minWidth="0.0" prefWidth="143.0" text="CORREO">
+                		<cellValueFactory>
+                			<PropertyValueFactory property="correo" />
+                		</cellValueFactory>
+                </TableColumn>
+                  <TableColumn minWidth="0.0" prefWidth="114.0" text="EMPRESA">
+                		<cellValueFactory>
+                			<PropertyValueFactory property="empresa" />
+                		</cellValueFactory>
+                </TableColumn>
+              </columns>
+            </TableView>
+            <CheckBox fx:id="ckbInactivos" disable="true" layoutX="13.0" layoutY="507.0" mnemonicParsing="false" onAction="#clickInactivos" text="Mostrar inactivos" />
+            <Label layoutX="368.0" layoutY="91.0" text="Ciudad" />
+            <TextField fx:id="txtCiudad" disable="true" layoutX="272.0" layoutY="64.0" prefHeight="27.0" prefWidth="239.0" />
+            <TextField fx:id="txtPais" disable="true" layoutX="274.0" layoutY="120.0" prefHeight="27.0" prefWidth="239.0" />
+            <Label layoutX="365.0" layoutY="145.0" text="Empresa" />
+            <TextField fx:id="txtCP" alignment="CENTER_RIGHT" disable="true" layoutX="537.0" layoutY="116.0" prefHeight="27.0" prefWidth="239.0" promptText="99999" />
+            <Label layoutX="607.0" layoutY="143.0" text="Código Postal" />
+            <Label layoutX="631.0" layoutY="40.0" text="Teléfono" />
+            <TextField fx:id="txtTelefono" alignment="CENTER_RIGHT" disable="true" layoutX="538.0" layoutY="13.0" prefHeight="27.0" prefWidth="239.0" promptText="(999) 99-99999" />
+            <TextField fx:id="txtCorreo" disable="true" layoutX="537.0" layoutY="65.0" prefHeight="27.0" prefWidth="239.0" />
+            <Label layoutX="599.0" layoutY="92.0" text="Correo Electrónico" />
+            <TextField fx:id="txtBuscador" layoutX="627.0" layoutY="187.0" onKeyReleased="#textChange_busqueda" />
+            <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="601.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconos/search.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </center>
+   <bottom>
+      <Pane prefHeight="38.0" prefWidth="606.0" style="-fx-background-color: #0B2F3A;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblMensaje" layoutX="14.0" layoutY="11.0" text="[LblMensaje]" textFill="WHITE" />
+         </children>
+      </Pane>
+   </bottom>
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <Button fx:id="btnNuevo" contentDisplay="TOP" mnemonicParsing="false" onAction="#clickNuevo" style="-fx-background-color: transparent;" text="Nuevo">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@iconos/plus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnGuardar" contentDisplay="TOP" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickGuardar" style="-fx-background-color: transparent;" text="Guardar">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@iconos/save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEliminar" contentDisplay="TOP" disable="true" layoutX="72.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickEliminar" style="-fx-background-color: transparent;" text="Eliminar">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@iconos/eraser.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnModificar" contentDisplay="TOP" disable="true" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickModificar" style="-fx-background-color: transparent;" text="Modificar">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@iconos/refresh.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCancelar" contentDisplay="TOP" disable="true" layoutX="215.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickCancelar" style="-fx-background-color: transparent;" text="Cancelar">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@iconos/error.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnReporte" contentDisplay="TOP" layoutX="272.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Reporte" onAction="#clickReporte">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@iconos/analytics.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+        </items>
+      </ToolBar>
+   </top>
+   <left>
+      <Pane prefHeight="534.0" prefWidth="20.0" style="-fx-background-color: #0B2F3A;" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>

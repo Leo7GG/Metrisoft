@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="548.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorAcceso">
+   <bottom>
+      <Pane prefHeight="51.0" prefWidth="600.0" style="-fx-background-color: #0B2F3A;" BorderPane.alignment="CENTER" />
+   </bottom>
+   <right>
+      <Pane prefHeight="285.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="198.0" fitWidth="269.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconos/logo2.jpg" />
+               </image>
+            </ImageView>
+            <HBox layoutX="285.0" layoutY="66.0" prefHeight="29.0" prefWidth="231.0">
+               <children>
+                  <ImageView fitHeight="27.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@iconos/user.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="txtAlias" prefHeight="29.0" prefWidth="206.0" promptText="Usuario" style="-fx-border-color: #62256B; -fx-border-radius: 5;" />
+               </children>
+            </HBox>
+            <HBox layoutX="285.0" layoutY="109.0" prefHeight="31.0" prefWidth="235.0">
+               <children>
+                  <ImageView fitHeight="28.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@iconos/password.png" />
+                     </image>
+                  </ImageView>
+                  <PasswordField fx:id="pfContrasenia" prefHeight="29.0" prefWidth="195.0" promptText="Contraseña" style="-fx-border-color: #62256B; -fx-border-radius: 4;" />
+               </children>
+            </HBox>
+            <Button layoutX="379.0" layoutY="152.0" mnemonicParsing="false" onAction="#clickValidar" prefHeight="10.0" prefWidth="48.0">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@iconos/lock.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Hyperlink fx:id="linkConfigurar" layoutX="451.0" layoutY="234.0" onAction="#clickConfigurar" text="Configurar" />
+         </children>
+      </Pane>
+   </right>
+</BorderPane>

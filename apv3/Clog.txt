@@ -1,0 +1,9 @@
+*************************
+Error ubicado en:DAOConexion-Conectar
+Fecha: 18/03/2017 19:28:20
+Descripcion: FATAL: password authentication failed for user "postgres"
+**************************************************
+Error ubicado en:DAOConexion-Conectar
+Fecha: 18/03/2017 19:28:26
+Descripcion: FATAL: password authentication failed for user "postgres"
+*************************
