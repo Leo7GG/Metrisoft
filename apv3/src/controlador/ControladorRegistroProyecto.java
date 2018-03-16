@@ -205,6 +205,16 @@ public class ControladorRegistroProyecto  implements Initializable{
 			e.printStackTrace();
 		}
 	}
+    @FXML public void cargarReporte() throws IOException{
+  		try {
+  			ControladorVentanas cv = ControladorVentanas.getInstancia();
+  			cv.getSubcontenedor(reporteador.loadReporteProyecto());
+
+  		} catch (Exception e) {
+  			// TODO Auto-generated catch block
+  			e.printStackTrace();
+  		}
+  	}
     @FXML public void cerrarReporte() throws IOException{
 		try {
 			ControladorVentanas cv = ControladorVentanas.getInstancia();
