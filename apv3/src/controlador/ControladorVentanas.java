@@ -112,11 +112,7 @@ public class ControladorVentanas {
         subcontenedor.setCenter(nodo);
         
     }
-    public void cerrarSubcontenedor(){
-		
     
-    
-}
 
     //Método para recuperar el PrimaryStage
     public Stage getPrimaryStage() {

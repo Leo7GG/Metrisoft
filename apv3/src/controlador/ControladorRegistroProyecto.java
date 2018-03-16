@@ -216,13 +216,7 @@ public class ControladorRegistroProyecto  implements Initializable{
   		}
   	}
     @FXML public void cerrarReporte() throws IOException{
-		try {
-			ControladorVentanas cv = ControladorVentanas.getInstancia();
-			cv.cerrarSubcontenedor();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
     //Metodo para cancelar la selecccion de un elemento de la tabla
     @FXML void clickCancelar() {
