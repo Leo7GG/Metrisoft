@@ -6,7 +6,8 @@ import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.sun.prism.impl.Disposer.Record;
 import javafx.beans.property.StringProperty;
@@ -267,82 +268,160 @@ public class ControladorEmpleado implements Initializable {
 	}
 	
 	//Validaciones
-	public void validacionTexto(){
-		txtNombre.textProperty().addListener(
-				(observable, oldValue, newValue)->{
-					if(!newValue.matches("[a-zA-Z]{0,20}") || newValue.length()>20){
-						((StringProperty)observable).setValue(oldValue);//Se regresa al valor anterior.
-					}
-					else{
-						((StringProperty)observable).setValue(newValue);//Se asigna el nuevo valor, porque es vÃ¡lido.
-					}
-				});
-		txtAM.textProperty().addListener(
-				(observable, oldValue, newValue)->{
-					if(!newValue.matches("[a-zA-Z]{0,50}") || newValue.length()>50){
-						((StringProperty)observable).setValue(oldValue);//Se regresa al valor anterior.
-					}
-					else{
-						((StringProperty)observable).setValue(newValue);//Se asigna el nuevo valor, porque es vÃ¡lido.
-					}
-				});
-		txtAP.textProperty().addListener(
-				(observable, oldValue, newValue)->{
-					if(!newValue.matches("[a-zA-Z]{0,50}") || newValue.length()>50){
-						((StringProperty)observable).setValue(oldValue);//Se regresa al valor anterior.
-					}
-					else{
-						((StringProperty)observable).setValue(newValue);//Se asigna el nuevo valor, porque es vÃ¡lido.
+			public void validacionTexto(){
+				txtNombre.setOnKeyTyped(new EventHandler<KeyEvent>(){
+					@Override
+					public void handle(KeyEvent event){
+						char l = event.getCharacter().charAt(0);
+						
+						if(!Character.isLetter(l) && !Character.isSpaceChar(l) && l != 8 && l != 127){
+								event.consume();
+								lblMensaje.setText("Solo se permiten letras (A-Z) y espacios");					
+						}
+						else{
+							lblMensaje.setText("Mensaje*");
+							if(txtNombre.getText().length() == NOMBRE){
+								event.consume();
+								lblMensaje.setText("Se ha alcanzado el número máximo de caracteres");
+							}
+						}
 					}
 				});
-		txtCiudad.textProperty().addListener(
-				(observable, oldValue, newValue)->{
-					if(!newValue.matches("[a-zA-Z]{0,50}") || newValue.length()>50){
-						((StringProperty)observable).setValue(oldValue);//Se regresa al valor anterior.
-					}
-					else{
-						((StringProperty)observable).setValue(newValue);//Se asigna el nuevo valor, porque es vÃ¡lido.
-					}
-				});
-		/*txtCorreo.textProperty().addListener(
-				(observable, oldValue, newValue)->{
-					if(!newValue.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$") || newValue.length()>50){
-						((StringProperty)observable).setValue(oldValue);//Se regresa al valor anterior.
-					}
-					else{
-						((StringProperty)observable).setValue(newValue);//Se asigna el nuevo valor, porque es vÃ¡lido.
-					}
-				});*/
-		
-		txtCP.textProperty().addListener(
-				(observable, oldValue, newValue)->{
-					if(!newValue.matches("\\d{0,5}") || newValue.length()>5){
-						((StringProperty)observable).setValue(oldValue);//Se regresa al valor anterior.
-					}
-					else{
-						((StringProperty)observable).setValue(newValue);//Se asigna el nuevo valor, porque es vÃ¡lido.
+				txtAP.setOnKeyTyped(new EventHandler<KeyEvent>(){
+					@Override
+					public void handle(KeyEvent event){
+						char l = event.getCharacter().charAt(0);
+						
+						if(!Character.isLetter(l) && !Character.isSpaceChar(l) && l != 8 && l != 127){
+								event.consume();
+								lblMensaje.setText("Solo se permiten letras (A-Z) y espacios");					
+						}
+						else{
+							lblMensaje.setText("Mensaje*");
+							if(txtAP.getText().length() == APELLIDO){
+								event.consume();
+								lblMensaje.setText("Se ha alcanzado el número máximo de caracteres");
+							}
+						}
 					}
 				});
-		txtDomicilio.textProperty().addListener(
-				(observable, oldValue, newValue)->{
-					if(!newValue.matches("[a-zA-Z\\s0-9]{0,50}") || newValue.length()>50){
-						((StringProperty)observable).setValue(oldValue);//Se regresa al valor anterior.
-					}
-					else{
-						((StringProperty)observable).setValue(newValue);//Se asigna el nuevo valor, porque es vÃ¡lido.
+				txtAM.setOnKeyTyped(new EventHandler<KeyEvent>(){
+					@Override
+					public void handle(KeyEvent event){
+						char l = event.getCharacter().charAt(0);
+						
+						if(!Character.isLetter(l) && !Character.isSpaceChar(l) && l != 8 && l != 127){
+								event.consume();
+								lblMensaje.setText("Solo se permiten letras (A-Z) y espacios");					
+						}
+						else{
+							lblMensaje.setText("Mensaje*");
+							if(txtAM.getText().length() == APELLIDO){
+								event.consume();
+								lblMensaje.setText("Se ha alcanzado el número máximo de caracteres");
+							}
+						}
 					}
 				});
-		
-		txtTelefono.textProperty().addListener(
-				(observable, oldValue, newValue)->{
-					if(!newValue.matches("\\d{0,10}") || newValue.length()>12){
-						((StringProperty)observable).setValue(oldValue);//Se regresa al valor anterior.
+				txtCiudad.setOnKeyTyped(new EventHandler<KeyEvent>(){
+					@Override
+					public void handle(KeyEvent event){
+						char l = event.getCharacter().charAt(0);
+						
+						if(!Character.isLetter(l) && !Character.isSpaceChar(l) && l != 8 && l != 127){
+								event.consume();
+								lblMensaje.setText("Solo se permiten letras (A-Z) y espacios");					
+						}
+						else{
+							lblMensaje.setText("Mensaje*");
+							if(txtCiudad.getText().length() == CIUDAD){
+								event.consume();
+								lblMensaje.setText("Se ha alcanzado el número máximo de caracteres");
+							}
+						}
 					}
-					else{
-						((StringProperty)observable).setValue(newValue);//Se asigna el nuevo valor, porque es vÃ¡lido.
+				});		
+				txtCP.setOnKeyTyped(new EventHandler<KeyEvent>(){
+					@Override
+					public void handle(KeyEvent event){
+						char l = event.getCharacter().charAt(0);
+						
+						if(!Character.isDigit(l) && l != 8 && l != 127){
+								event.consume();
+								lblMensaje.setText("Solo se permiten numeros (0-9)");					
+						}
+						else{
+							lblMensaje.setText("Mensaje*");
+							if(txtCP.getText().length() == CP){
+								event.consume();
+								lblMensaje.setText("Se ha alcanzado el número máximo de caracteres");
+							}
+						}
 					}
 				});
-	}
+				txtDomicilio.setOnKeyTyped(new EventHandler<KeyEvent>(){
+					@Override
+					public void handle(KeyEvent event){
+						char l = event.getCharacter().charAt(0);
+						
+						if(!Character.isLetter(l) && !Character.isSpaceChar(l) && !Character.isDigit(l) && l != 8 && l != 127){
+								event.consume();
+								lblMensaje.setText("Solo se permiten letras (A-Z), numeros (0-9) y espacios");					
+						}
+						else{
+							lblMensaje.setText("Mensaje*");
+							if(txtDomicilio.getText().length() == DOMICILIO){
+								event.consume();
+								lblMensaje.setText("Se ha alcanzado el número máximo de caracteres");
+							}
+						}
+					}
+				});
+				txtTelefono.setOnKeyTyped(new EventHandler<KeyEvent>(){
+					@Override
+					public void handle(KeyEvent event){
+						char l = event.getCharacter().charAt(0);
+						
+						if(!Character.isDigit(l) && l != 8 && l != 127){
+								event.consume();
+								lblMensaje.setText("Solo se permiten numeros (0-9)");					
+						}
+						else{
+							lblMensaje.setText("Mensaje*");
+							if(txtTelefono.getText().length() == TELEFONO){
+								event.consume();
+								lblMensaje.setText("Se ha alcanzado el número máximo de caracteres");
+							}
+						}
+					}
+				});
+				txtCorreo.setOnKeyTyped(new EventHandler<KeyEvent>(){
+					@Override
+					public void handle(KeyEvent event) {
+						boolean status = emailValidacion(txtCorreo.getText());
+						if (status) {
+							lblMensaje.setText("Mensaje*");
+							
+						} else {
+							lblMensaje.setText("El correo no es valido");
+						}
+					}			
+				});
+			}
+			
+			private static boolean emailValidacion(String email){
+				boolean status = false;
+				String patron = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z]+(\\.[A-Za-z]+)*(\\.[A-Za-z]{2,})$";
+				Pattern pattern = Pattern.compile(patron);
+				Matcher matcher = pattern.matcher(email);
+				if(matcher.matches()){
+					status = true;
+				}
+				else{
+					status = false;
+				}
+				return status;
+			}
 	
 	//Caja de texto para realizar bÃºsquedas
 	@FXML public void textChange_busqueda(){
