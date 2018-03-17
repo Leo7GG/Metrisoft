@@ -26,7 +26,7 @@
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../apv2/src/vista/iconos/plus.png" />
+                        <Image url="@../../../apv3/src/vista/iconos/plus.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -50,7 +50,7 @@
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../apv2/src/vista/iconos/eraser.png" />
+                        <Image url="@../../../apv3/src/vista/iconos/eraser.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -62,7 +62,7 @@
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../apv2/src/vista/iconos/refresh.png" />
+                        <Image url="@../../../apv3/src/vista/iconos/refresh.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -89,7 +89,7 @@
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../apv2/src/vista/iconos/analytics.png" />
+                        <Image url="@../../../apv3/src/vista/iconos/analytics.png" />
                      </image>
                   </ImageView>
                </graphic>

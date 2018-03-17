@@ -191,6 +191,7 @@ public class ControladorRegistroProyecto  implements Initializable{
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}finally {
 			
 		}
