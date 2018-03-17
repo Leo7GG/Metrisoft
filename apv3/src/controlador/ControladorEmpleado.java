@@ -53,6 +53,15 @@ public class ControladorEmpleado implements Initializable {
 	private ControladorVentanas instancia;	//Lista para realizar búsquedas
 	private FilteredList<DAOEmpleado> listaBusqueda;
 	
+	private static final int NOMBRE = 50;
+	private static final int APELLIDO = 50;
+	private static final int DOMICILIO = 100;
+	private static final int CIUDAD = 50;
+	private static final int PAIS = 50;
+	private static final int CP = 5;
+//	private static final int CORREO = 100;
+	private static final int TELEFONO = 10;
+	
 	//Constructor
 	public ControladorEmpleado() {
 		// TODO Auto-generated constructor stub
