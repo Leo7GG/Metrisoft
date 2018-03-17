@@ -217,7 +217,7 @@ public class ControladorRegistroProyecto  implements Initializable{
   		}
   	}
     
-    //Metodo para cancelar la selecccion de un elemento de la tabla
+    //Metodo para cancelar la selecccion de un  de la tabla
     @FXML void clickCancelar() {
     	limpiar();
     	bloquear();
