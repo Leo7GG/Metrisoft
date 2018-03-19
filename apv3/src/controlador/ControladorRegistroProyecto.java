@@ -191,6 +191,7 @@ public class ControladorRegistroProyecto  implements Initializable{
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}finally {
 			
 		}
@@ -215,10 +216,8 @@ public class ControladorRegistroProyecto  implements Initializable{
   			e.printStackTrace();
   		}
   	}
-    @FXML public void cerrarReporte() throws IOException{
-		
-	}
-    //Metodo para cancelar la selecccion de un elemento de la tabla
+    
+    //Metodo para cancelar la selecccion de un  de la tabla
     @FXML void clickCancelar() {
     	limpiar();
     	bloquear();
