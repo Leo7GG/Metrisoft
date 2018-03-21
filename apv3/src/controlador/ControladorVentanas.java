@@ -62,6 +62,8 @@ public class ControladorVentanas {
             escena = new Scene(contenedorMenu);
             primaryStage.setScene(escena);
             primaryStage.setTitle(titulo);
+            primaryStage.getIcons().add(new Image("/vista/iconos/logo2.png"));
+            stages = new ArrayList<Stage>();
             primaryStage.resizableProperty().setValue(Boolean.FALSE);
             //primaryStage.getIcons().add(
                     //new Image("/vista/iconos/logo.png"));
@@ -92,6 +94,7 @@ public class ControladorVentanas {
             escena = new Scene(subcontenedor);
             //Ligando hoja de estilo
             escena.getStylesheets().add("vista/estilo/botones.css");
+            escenario2.getIcons().add(new Image("/vista/iconos/logo2.png"));
             escenario2.setScene(escena);
             escenario2.setTitle(titulo);
             escenario2.centerOnScreen();

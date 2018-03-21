@@ -1,10 +1,14 @@
 package controlador;
 
+import javafx.application.Platform;
 import javafx.beans.property.StringProperty;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import modelo.DAOUsuarios;
 import controlador.controlador.notificaciones.*;
 
@@ -12,22 +16,18 @@ import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-
-/**
- * Created by mreinazarate on 23/03/17.
- */
 public class ControladorAcceso implements Initializable{
     //Controles
     @FXML TextField txtAlias;
     @FXML PasswordField pfContrasenia;
-
+    
     //Atributos
     private DAOUsuarios usuarios;
     private ControladorVentanas cv;
     Notification info;
-
+    
     public ControladorAcceso(){
+    	
         this.usuarios= new DAOUsuarios();
         cv = ControladorVentanas.getInstancia();
 
@@ -35,8 +35,35 @@ public class ControladorAcceso implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
-    }
+    	Platform.runLater(new Runnable()
+		{
+		    @Override
+		    public void run()
+		    {
+		    	txtAlias.requestFocus();
+		    }
+		});
+		
+		txtAlias.setOnKeyPressed(new EventHandler<KeyEvent>(){
+			@Override
+			public void handle(KeyEvent event) {
+				if(event.getCode() == KeyCode.ENTER){
+					clickValidar();
+				}
+			}
+			
+		});
+		
+		pfContrasenia.setOnKeyPressed(new EventHandler<KeyEvent>(){
+			@Override
+			public void handle(KeyEvent event) {
+				if(event.getCode() == KeyCode.ENTER){
+					clickValidar();
+				}
+			}
+			
+		});
+	}
 
     @FXML public void clickValidar(){
         try{
@@ -65,7 +92,7 @@ public class ControladorAcceso implements Initializable{
                     cv.asignarMenu("../vista/menu.fxml","Bienvenido " + temp.getAlias().toUpperCase(), temp);
                 }
                 else{
-                    Notification.Notifier.INSTANCE.notifyError("Metrisoft", "Credenciales no v√°lidas.");
+                    Notification.Notifier.INSTANCE.notifyError("Metrisoft", "Credenciales no v·lidas.");
                     txtAlias.clear();
                     pfContrasenia.clear();
                 }
@@ -77,8 +104,7 @@ public class ControladorAcceso implements Initializable{
     }
     
     @FXML public void clickConfigurar(){
-    	//System.out.println("Hola Mundo desde link");
-    	cv.asignarModal("../vista/configura.fxml","Configuraci√≥n");
+    	cv.asignarModal("../vista/configura.fxml","ConfiguraciÛn");
     }
 
 }
