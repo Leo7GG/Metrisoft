@@ -89,7 +89,7 @@ public class ControladorAcceso implements Initializable{
                 DAOUsuarios temp = usuarios.validarCredencial();
                 if(temp!=null){
                     cv.cerrarAcceso();
-                    cv.asignarMenu("../vista/menu.fxml","Bienvenido " + temp.getAlias().toUpperCase(), temp);
+                    cv.asignarMenu("../vista/menu.fxml","Bienvenido(a): " + temp.getAlias().toUpperCase(), temp);
                 }
                 else{
                     Notification.Notifier.INSTANCE.notifyError("Metrisoft", "Credenciales no válidas.");
