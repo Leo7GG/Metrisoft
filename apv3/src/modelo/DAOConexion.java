@@ -40,7 +40,7 @@ public class DAOConexion {
 	public boolean desconectar(){
 		try {
 			miConexion.close();
-			System.out.println("ConexiÃ³n cerrada");
+			System.out.println("Conexión cerrada");
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

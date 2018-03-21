@@ -6,9 +6,6 @@ import javafx.collections.ObservableList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-/**
- * Created by mreinazarate on 23/03/17.
- */
 public class DAOUsuarios {
     private int usuarioid;
     private String alias, contrasenia, nivel;
