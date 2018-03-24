@@ -21,8 +21,8 @@
                 </TableColumn>
               </columns>
             </TableView>
-            <CheckBox fx:id="ckbInactivos" disable="true" layoutX="13.0" layoutY="507.0" mnemonicParsing="false" onAction="#clickInactivos" text="Mostrar inactivos" />
-            <TextField fx:id="txtBuscador" layoutX="627.0" layoutY="187.0" onKeyReleased="#textChange_busqueda" />
+            <CheckBox fx:id="ckbInactivos" disable="true" layoutX="13.0" layoutY="507.0" mnemonicParsing="false" text="Mostrar inactivos" />
+            <TextField fx:id="txtBuscador" layoutX="627.0" layoutY="187.0"/>
             <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="601.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@iconos/search.png" />
