@@ -6,8 +6,11 @@ import javafx.collections.ObservableList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+/**
+ * Created by mreinazarate on 23/03/17.
+ */
 public class DAOUsuarios {
-    private int usuarioid;
+    private int usuarioid, idempleado;
     private String alias, contrasenia, nivel;
     private DAOConexion con;
     private PreparedStatement comando;
@@ -15,6 +18,7 @@ public class DAOUsuarios {
 
     public DAOUsuarios(){
         this.usuarioid=0;
+        this.idempleado = 0;
         this.alias="";
         this.contrasenia="";
         this.nivel="";
@@ -54,6 +58,14 @@ public class DAOUsuarios {
         this.usuarioid = usuarioid;
     }
 
+    public int getIdempleado() {
+        return idempleado;
+    }
+
+    public void setIdempleado(int idempleado) {
+        this.idempleado = idempleado;
+    }
+
     public DAOUsuarios validarCredencial(){
         DAOUsuarios usuario=null;
         ResultSet rs=null;
@@ -67,6 +79,7 @@ public class DAOUsuarios {
                     usuario.alias=rs.getString("alias");
                     usuario.nivel=rs.getString("nivel");
                     usuario.usuarioid = rs.getInt("id_us");
+                    usuario.idempleado = rs.getInt("idempleado");
                 }
             }
         }
@@ -85,11 +98,12 @@ public class DAOUsuarios {
             String sql="";
             if(con.conectar()==true){
                 sql="insert into usuarios "
-                        + "values (default,?,?,?,TRUE)";
+                        + "values (default,?,?,?,TRUE,?)";
                 comando =con.getConexion().prepareStatement(sql);
                 comando.setString(1, this.alias);
                 comando.setString(2, this.nivel);
                 comando.setString(3, this.contrasenia);
+                comando.setInt(4, this.idempleado);
                 //Ejecutate
                 comando.execute();
                 return true;
@@ -121,6 +135,7 @@ public class DAOUsuarios {
                 b.alias=temporal.getString("alias");
                 b.nivel = temporal.getString("nivel");
                 b.contrasenia=temporal.getString("contrasenia");
+                b.idempleado=temporal.getInt("idempleado");
                 //temporal.getString(1).charAt(1);
                 lista.add(b);
             }
@@ -172,6 +187,29 @@ public class DAOUsuarios {
         }
     }
 
-
-
+    public boolean modificar(){
+        String sql="";
+        try {
+            if(con.conectar()){
+                sql="update usuarios set alias=?, nivel=?, contrasenia=?, idempleado=? where id_us=?";
+                comando = con.getConexion().prepareStatement(sql);
+                comando.setString(1, this.alias);
+                comando.setString(2, this.nivel);
+                comando.setString(3, this.contrasenia);
+                comando.setInt(4, this.idempleado);
+                comando.setInt(5, this.usuarioid);//El ID del usuario a modificar
+                comando.execute();
+                return true;
+            }
+            else{
+                return false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        finally{
+            con.desconectar();
+        }
+    }
 }

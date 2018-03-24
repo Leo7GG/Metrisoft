@@ -13,43 +13,61 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Callback;
+import modelo.DAOEmpleado;
 import modelo.DAOUsuarios;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 
+import javax.swing.text.html.parser.Parser;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControladorUsuarios implements Initializable{
     @FXML TextField txtUsuario, txtContrasenia, txtContraseniaVisible;
     @FXML Button btnNuevo, btnEliminar,btnModificar, btnCancelar, btnGuardar, btnVer;
-    @FXML ComboBox<String> cbNivel;
+    @FXML ComboBox<String> cbNivel, cbEmpleados;
     @FXML Label lblMensaje;
     @FXML CheckBox ckbInactivos;
-    private ObservableList<String> puestos;
+    private ObservableList<String> puestos, empleados;
+    private ObservableList<Integer> empleadosId;
     private DAOUsuarios Usuario;
+    private DAOEmpleado Empleado;
     private ObservableList<DAOUsuarios> lista;
+    private ObservableList<DAOEmpleado> listaE;
     @FXML TableView<DAOUsuarios> tvUsuarios;
     private static boolean caso = false;
-
+    private ControladorVentanas instancia;
+    private DAOUsuarios usuario;
     //Validaciones
     ValidationSupport soporte = new ValidationSupport();
 
     public ControladorUsuarios() {
         // TODO Auto-generated constructor stub
         this.Usuario = new DAOUsuarios();
-
+        this.Empleado = new DAOEmpleado();
+        instancia = ControladorVentanas.getInstancia();
+        usuario=(DAOUsuarios) instancia.getPrimaryStage().getUserData();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        empleados = FXCollections.observableArrayList();
+        empleadosId = FXCollections.observableArrayList();
+        listaE= Empleado.consultar("select * from empleado where estatus='1' ");
+        lista= Usuario.consultar("select * from usuarios where estatus='1' and id_us <>"+usuario.getUsuarioid());
+
+        for (int i = 0; i< listaE.size(); i++){
+            empleados.add(listaE.get(i).getNombre());
+            empleadosId.add(listaE.get(i).getidEmpleados());
+        }
+        cbEmpleados.setItems(empleados);
+
         puestos = FXCollections.observableArrayList();
-        puestos.add("Administrador");
-        puestos.add("Usuario");
-        puestos.add("Invitado");
+        puestos.add("administrador");
+        puestos.add("usuario");
+        puestos.add("invitado");
         cbNivel.setItems(puestos);
 
-        lista=Usuario.consultar("select * from usuarios where estatus='1'");
         tvUsuarios.setItems(lista);
 
         cbNivel.getSelectionModel().select(1);//Default
@@ -68,6 +86,7 @@ public class ControladorUsuarios implements Initializable{
         txtContraseniaVisible.setDisable(false);
         cbNivel.setDisable(false);
         btnVer.setDisable(false);
+        cbEmpleados.setDisable(false);
 
     }
 
@@ -86,8 +105,39 @@ public class ControladorUsuarios implements Initializable{
         txtContraseniaVisible.setDisable(true);
         cbNivel.setDisable(true);
         btnVer.setDisable(true);
+        cbEmpleados.setDisable(true);
+    }
 
+    @FXML public void clickModificar(){
+        if(txtUsuario.getText().trim().isEmpty() ||
+                txtContrasenia.getText().trim().isEmpty() ){
+            lblMensaje.setText("Todos los campos son obligatrios");
+        }
+        else{
+            //Asignar los datos a empleado
+            this.Usuario.setAlias(txtUsuario.getText());
+            this.Usuario.setContrasenia(txtContrasenia.getText());
+            this.Usuario.setNivel(cbNivel.getSelectionModel().getSelectedItem());
+            this.Usuario.setIdempleado(empleadosId.get(cbEmpleados.getSelectionModel().getSelectedIndex()));
+            if(Usuario.modificar()){
+                lblMensaje.setText("Se ha modificado correctamente el registro.");
+                clickCancelar();
+                //Limpiar cajas
 
+                //Bloquear cajas
+
+                //Deshabilitar
+                btnEliminar.setDisable(true);
+                btnModificar.setDisable(true);
+                btnCancelar.setDisable(true);
+                //Habilitar
+                btnNuevo.setDisable(false);
+                //Actualizar el TableView
+            }
+            else{
+                lblMensaje.setText("Ha ocurrido un error inesperado. Consulte a su administrador.");
+            }
+        }
     }
 
     @FXML public void clickGuardar(){
@@ -102,14 +152,14 @@ public class ControladorUsuarios implements Initializable{
                 Usuario.setAlias(txtUsuario.getText());
                 Usuario.setContrasenia(txtContrasenia.getText());
                 Usuario.setNivel(cbNivel.getSelectionModel().getSelectedItem());
-
+                Usuario.setIdempleado(empleadosId.get(cbEmpleados.getSelectionModel().getSelectedIndex()));
                 //Se recupera la fecha del DatePicker
 
                 //Insertar
                 if(Usuario.insertar()==true){
                     lblMensaje.setText("Datos insertados correctamente");
                     lista.clear();
-                    lista=Usuario.consultar("select * from usuarios where estatus='1'");
+                    lista=Usuario.consultar("select * from usuarios where estatus='1' and id_us <>"+usuario.getUsuarioid());
                     tvUsuarios.setItems(lista);
                     tvUsuarios.refresh();
                     //lista= bibliotecario.consultar("select * from bibliotecario");
@@ -135,6 +185,12 @@ public class ControladorUsuarios implements Initializable{
             txtUsuario.setText(Usuario.getAlias());
             txtContrasenia.setText(Usuario.getContrasenia());
             cbNivel.getSelectionModel().select(Usuario.getNivel());
+
+            for (int i = 0; i < empleadosId.size(); i++) {
+                if (empleadosId.get(i) == Usuario.getIdempleado()) {
+                    cbEmpleados.getSelectionModel().select(i);
+                }
+            }
             lblMensaje.setText("Cargados datos de: " +
                     Usuario.getAlias());
             //Habilitar
@@ -147,6 +203,7 @@ public class ControladorUsuarios implements Initializable{
             txtContrasenia.setDisable(false);
             txtUsuario.setDisable(false);
             cbNivel.setDisable(false);
+            cbEmpleados.setDisable(false);
         }
         else
         {
@@ -199,7 +256,7 @@ public class ControladorUsuarios implements Initializable{
             tvUsuarios.getItems().clear();//Limpiar los datos de la tabla
             if(ckbInactivos.isSelected()==true){
                 //Si esta seleccionado se muestran los inactivos
-                lista = Usuario.consultar("select * from usuarios where estatus='0'");
+                lista = Usuario.consultar("select * from usuarios where estatus='0' and id_us <>"+usuario.getUsuarioid());
                 @SuppressWarnings("rawtypes")
                 TableColumn columnaRestaurar =
                         new TableColumn<>();
@@ -215,7 +272,7 @@ public class ControladorUsuarios implements Initializable{
                         new Callback<TableColumn<Disposer.Record, Boolean>, TableCell<Disposer.Record,Boolean>>() {
                             @Override
                             public TableCell<Disposer.Record, Boolean> call(TableColumn<Disposer.Record, Boolean> param) {
-                                return new ControladorUsuarios.BotonActivar();
+                                return new BotonActivar();
                             }
                         });
             }
@@ -224,7 +281,7 @@ public class ControladorUsuarios implements Initializable{
                 if(tvUsuarios.getColumns().size()>2){
                     tvUsuarios.getColumns().remove(0);
                 }
-                lista = Usuario.consultar("select * from usuarios where estatus='1'");
+                lista = Usuario.consultar("select * from usuarios where estatus='1' and id_us <>"+usuario.getUsuarioid());
             }
             tvUsuarios.setItems(lista); //Asignar la lista actualizada a la tabla
         } catch (Exception e) {
@@ -247,9 +304,9 @@ public class ControladorUsuarios implements Initializable{
             cellButton.setOnAction(new EventHandler<ActionEvent>(){
                 @Override
                 public void handle(ActionEvent t) {
-                    Usuario = (DAOUsuarios) ControladorUsuarios.BotonActivar.this.getTableView().getItems().get(ControladorUsuarios.BotonActivar.this.getIndex());
+                    Usuario = (DAOUsuarios) BotonActivar.this.getTableView().getItems().get(BotonActivar.this.getIndex());
                     if(Usuario.reactivar()==true){
-                        lista = Usuario.consultar("select * from usuarios where estatus='0'");
+                        lista = Usuario.consultar("select * from usuarios where estatus='0' and id_us <>"+usuario.getUsuarioid());
                         tvUsuarios.setItems(lista);
                         tvUsuarios.refresh();
                         txtContrasenia.clear();

@@ -15,9 +15,9 @@ public class DAOConexion {
 	public DAOConexion(){
 		this.servidor="localhost";//127.0.0.1
 		this.usuario="postgres";
-		this.contrasenia="utcvtic";
+		this.contrasenia="escualo";
 		this.puerto="5432";
-		this.baseDatos="Metrisoft";
+		this.baseDatos="metrica";
 		this.ce= new ControladorErrores();
 	}
 	
@@ -40,7 +40,7 @@ public class DAOConexion {
 	public boolean desconectar(){
 		try {
 			miConexion.close();
-			System.out.println("Conexión cerrada");
+			System.out.println("Conexiï¿½n cerrada");
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

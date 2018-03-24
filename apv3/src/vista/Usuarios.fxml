@@ -59,6 +59,7 @@
                </graphic>
             </Button>
             <TextField fx:id="txtContraseniaVisible" layoutX="116.0" layoutY="73.0" prefHeight="31.0" prefWidth="142.0" />
+            <ComboBox fx:id="cbEmpleados" layoutX="466.0" layoutY="73.0" prefWidth="150.0" />
          </children>
       </Pane>
    </center>
@@ -92,7 +93,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnModificar" contentDisplay="TOP" layoutX="134.0" layoutY="10.0" mnemonicParsing="false" text="Modificar">
+            <Button fx:id="btnModificar" contentDisplay="TOP" layoutX="134.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickModificar" text="Modificar">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                      <image>
