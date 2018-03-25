@@ -22,7 +22,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnClientes" contentDisplay="TOP" disable="true" layoutX="321.0" layoutY="10.0" mnemonicParsing="false"  onAction="#clicCliente" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="CLIENTES" textFill="WHITE">
+            <Button fx:id="btnClientes" contentDisplay="TOP" disable="true" layoutX="321.0" layoutY="10.0" mnemonicParsing="false" onAction="#clicCliente" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="CLIENTES" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -31,7 +31,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnProyectos" contentDisplay="TOP" disable="true" layoutX="321.0" layoutY="10.0" mnemonicParsing="false" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="PROYECTOS" textFill="WHITE" onAction="#clicProyecto">
+            <Button fx:id="btnProyectos" contentDisplay="TOP" disable="true" layoutX="321.0" layoutY="10.0" mnemonicParsing="false" onAction="#clicProyecto" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="PROYECTOS" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -40,7 +40,16 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnEmpleados" contentDisplay="TOP" disable="true" layoutX="321.0" layoutY="10.0" mnemonicParsing="false" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="EMPLEADOS" textFill="WHITE" onAction="#clicEmpleado">
+            <Button fx:id="btnEmpleados" contentDisplay="TOP" disable="true" layoutX="321.0" layoutY="10.0" mnemonicParsing="false" onAction="#clicEmpleado" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="EMPLEADOS" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@iconos/empleados.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnMedidas" contentDisplay="TOP" mnemonicParsing="false" onAction="#clicMedida" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="METRICAS" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                      <image>

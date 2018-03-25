@@ -22,7 +22,7 @@ public class ControladorErrores {
 		FileWriter fw = null;
 		BufferedWriter bw= null;
 		try {
-			File archivo = new File("D:\\log.txt");
+			File archivo = new File("C:\\log.txt");
 			fw = new FileWriter(archivo,true);
 			bw = new BufferedWriter(fw);
 			bw.write("*************************");

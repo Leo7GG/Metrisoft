@@ -75,4 +75,7 @@ public class ControladorMenu implements Initializable {
 	@FXML public void clicProyecto(){
 		instancia.asignarModal("../vista/nuevoProyecto.fxml","Proyecto");
 	}
+	@FXML public void clicMedida(){
+		instancia.asignarModal("../vista/Metricas.fxml","Medidas");
+	}
 }

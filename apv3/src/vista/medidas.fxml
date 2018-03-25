@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="548.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" >
+   <bottom>
+      <Pane prefHeight="51.0" prefWidth="600.0" style="-fx-background-color: #0B2F3A;" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <Pane prefHeight="285.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="110.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medidas de proyecto:" textAlignment="CENTER">
+               <font>
+                  <Font name="Al Bayan Bold" size="12.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="txtM4" layoutX="215.0" layoutY="195.0" prefHeight="29.0" prefWidth="195.0" style="-fx-border-color: #62256B; -fx-border-radius: 4;" />
+            <PasswordField fx:id="txtM3" layoutX="215.0" layoutY="154.0" prefHeight="29.0" prefWidth="195.0" style="-fx-border-color: #62256B; -fx-border-radius: 4;" />
+            <PasswordField fx:id="txtM2" layoutX="215.0" layoutY="111.0" prefHeight="29.0" prefWidth="195.0" style="-fx-border-color: #62256B; -fx-border-radius: 4;" />
+            <PasswordField fx:id="txtM1" layoutX="215.0" layoutY="68.0" prefHeight="29.0" prefWidth="195.0" style="-fx-border-color: #62256B; -fx-border-radius: 4;" />
+            <Label fx:id="lblM1" layoutX="55.0" layoutY="74.0" text="Label" />
+            <Label fx:id="lblM2" layoutX="55.0" layoutY="117.0" text="Label" />
+            <Label fx:id="lblM3" layoutX="55.0" layoutY="160.0" text="Label" />
+            <Label fx:id="lblM4" layoutX="55.0" layoutY="201.0" text="Label" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
