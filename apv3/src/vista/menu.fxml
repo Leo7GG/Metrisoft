@@ -53,9 +53,6 @@
                   </ImageView>
                </graphic>
             </Button>
-<<<<<<< HEAD
-            <Button fx:id="btnMedidas" contentDisplay="TOP" mnemonicParsing="false" onAction="#clicMedida" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="METRICAS" textFill="WHITE">
-=======
             <Button fx:id="btnMedidas" contentDisplay="TOP" mnemonicParsing="false" onAction="#clicMedida" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="MEDIDAS" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
@@ -66,7 +63,6 @@
                </graphic>
             </Button>
             <Button fx:id="btnMetrica" contentDisplay="TOP" disable="true" mnemonicParsing="false" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="METRICAS" textFill="WHITE">
->>>>>>> 93a9055198ec10d431a01de2bb300fe86f866ddc
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                      <image>
