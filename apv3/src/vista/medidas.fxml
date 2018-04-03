@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="548.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" >
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="548.0" stylesheets="@estilo/estilo.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <bottom>
       <Pane prefHeight="51.0" prefWidth="600.0" style="-fx-background-color: #0B2F3A;" BorderPane.alignment="CENTER" />
    </bottom>
@@ -19,10 +19,10 @@
                   <Font name="Al Bayan Bold" size="12.0" />
                </font>
             </Text>
-            <PasswordField fx:id="txtM4" layoutX="215.0" layoutY="195.0" prefHeight="29.0" prefWidth="195.0" style="-fx-border-color: #62256B; -fx-border-radius: 4;" />
-            <PasswordField fx:id="txtM3" layoutX="215.0" layoutY="154.0" prefHeight="29.0" prefWidth="195.0" style="-fx-border-color: #62256B; -fx-border-radius: 4;" />
-            <PasswordField fx:id="txtM2" layoutX="215.0" layoutY="111.0" prefHeight="29.0" prefWidth="195.0" style="-fx-border-color: #62256B; -fx-border-radius: 4;" />
-            <PasswordField fx:id="txtM1" layoutX="215.0" layoutY="68.0" prefHeight="29.0" prefWidth="195.0" style="-fx-border-color: #62256B; -fx-border-radius: 4;" />
+            <PasswordField fx:id="txtM4" layoutX="215.0" layoutY="195.0" prefHeight="29.0" prefWidth="195.0" />
+            <PasswordField fx:id="txtM3" layoutX="215.0" layoutY="154.0" prefHeight="29.0" prefWidth="195.0" />
+            <PasswordField fx:id="txtM2" layoutX="215.0" layoutY="111.0" prefHeight="29.0" prefWidth="195.0" />
+            <PasswordField fx:id="txtM1" layoutX="215.0" layoutY="68.0" prefHeight="29.0" prefWidth="195.0" />
             <Label fx:id="lblM1" layoutX="55.0" layoutY="74.0" text="Label" />
             <Label fx:id="lblM2" layoutX="55.0" layoutY="117.0" text="Label" />
             <Label fx:id="lblM3" layoutX="55.0" layoutY="160.0" text="Label" />
