@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<<<<<<< HEAD
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -14,11 +13,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="1021.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorMetricas">
-   <bottom>
-      <Pane prefHeight="24.0" prefWidth="968.0" style="-fx-background-color: #0B2F3A;" BorderPane.alignment="CENTER">
-=======
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
@@ -27,16 +21,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="617.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorMetricas">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="617.0" prefWidth="933.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorMetricas">
    <bottom>
-      <Pane prefHeight="25.0" prefWidth="1099.0" style="-fx-background-color: #0B2F3A;" BorderPane.alignment="CENTER">
->>>>>>> 93a9055198ec10d431a01de2bb300fe86f866ddc
+      <Pane prefHeight="23.0" prefWidth="617.0" style="-fx-background-color: #0B2F3A;" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="lblMensaje" layoutX="14.0" layoutY="11.0" textFill="WHITE" />
          </children>
       </Pane>
    </bottom>
-<<<<<<< HEAD
    <top>
       <ToolBar prefHeight="70.0" prefWidth="728.0" BorderPane.alignment="CENTER">
         <items>
@@ -44,8 +36,7 @@
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@iconos/refresh.png" />
-=======
+                        <Image url="@iconos/refresh.png" /></image></ImageView></graphic></Button></items></ToolBar></top>
    <left>
       <Pane prefHeight="534.0" prefWidth="20.0" style="-fx-background-color: #0B2F3A;" BorderPane.alignment="CENTER" />
    </left>
@@ -57,7 +48,7 @@
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@iconos/plus.png" />
->>>>>>> 93a9055198ec10d431a01de2bb300fe86f866ddc
+
                      </image>
                   </ImageView>
                </graphic>
@@ -65,11 +56,9 @@
                   <Font size="12.0" />
                </font>
             </Button>
-<<<<<<< HEAD
             <Button fx:id="btnGuardar" contentDisplay="TOP" mnemonicParsing="false" onAction="#clickGuardar" style="-fx-background-color: transparent;" text="Guardar">
-=======
-            <Button fx:id="btnGuardar" contentDisplay="TOP" mnemonicParsing="false" onAction="#clickGuardar" style="-fx-background-color: transparent;" text="Nuevo">
->>>>>>> 93a9055198ec10d431a01de2bb300fe86f866ddc
+
+
                <font>
                   <Font size="12.0" />
                </font>
@@ -81,8 +70,6 @@
                   </ImageView>
                </graphic>
             </Button>
-<<<<<<< HEAD
-=======
             <Button fx:id="btnEliminar" contentDisplay="TOP" layoutX="72.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickEliminar" style="-fx-background-color: transparent;" text="Eliminar">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
@@ -107,7 +94,6 @@
                   <Font size="12.0" />
                </font>
             </Button>
->>>>>>> 93a9055198ec10d431a01de2bb300fe86f866ddc
             <Button fx:id="btnCancelar" contentDisplay="TOP" layoutX="215.0" layoutY="10.0" mnemonicParsing="false" onAction="#clickCancelar" style="-fx-background-color: transparent;" text="Cancelar">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
@@ -136,64 +122,50 @@
       </ToolBar>
    </top>
    <center>
-<<<<<<< HEAD
-      <Pane prefHeight="548.0" prefWidth="592.0" BorderPane.alignment="CENTER">
-         <children>
-            <TableView fx:id="tvProyectos" layoutX="14.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#clickTableView" prefHeight="459.0" prefWidth="582.0">
-              <columns>
-                <TableColumn fx:id="clNombre" prefWidth="143.0" text="NOMBRE" />
-                <TableColumn fx:id="clInicio" prefWidth="85.0" text="INICIO" />
-                  <TableColumn fx:id="clFinal" prefWidth="87.0" text="FIN" />
-                  <TableColumn fx:id="clCliente" minWidth="0.0" prefWidth="107.0" text="CLIENTE" />
-                  <TableColumn fx:id="clLider" prefWidth="153.0" text="LIDER " />
-              </columns>
-            </TableView>
-            <Button layoutX="903.0" layoutY="381.0" mnemonicParsing="false" onAction="#clicMedida" text="Asociar" />
-            <Label layoutX="637.0" layoutY="294.0" text="Metrica" />
-            <ComboBox fx:id="cbMetricas" layoutX="718.0" layoutY="290.0" onAction="#clickCb" prefHeight="25.0" prefWidth="265.0" />
-            <Label fx:id="lblMensajeInterno" layoutX="637.0" layoutY="259.0" text="Nueva Metrica:">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font></Label>
-            <Label layoutX="637.0" layoutY="6.0" text="Metricas asociadas:">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font></Label>
-            <TableView fx:id="tvMetrica" layoutX="637.0" layoutY="36.0" prefHeight="200.0" prefWidth="347.0">
-              <columns>
-                <TableColumn prefWidth="191.0" text="Nombre" />
-              </columns>
-            </TableView>
-            <Separator layoutX="618.0" layoutY="244.0" prefHeight="0.0" prefWidth="403.0" />
-            <Separator layoutX="610.0" layoutY="6.0" orientation="VERTICAL" prefHeight="478.0" prefWidth="8.0" />
-            <Label fx:id="lblM1" layoutX="637.0" layoutY="339.0" text="Label" />
-            <Label fx:id="lblM2" layoutX="637.0" layoutY="368.0" text="Label" />
-            <Label fx:id="lblM4" layoutX="637.0" layoutY="426.0" text="Label" />
-            <Label fx:id="lblM3" layoutX="637.0" layoutY="397.0" text="Label" />
-            <TextField fx:id="txtM1" layoutX="718.0" layoutY="335.0" />
-            <TextField fx:id="txtM2" layoutX="718.0" layoutY="364.0" />
-            <TextField fx:id="txtM3" layoutX="718.0" layoutY="393.0" />
-            <TextField fx:id="txtM4" layoutX="718.0" layoutY="422.0" />
-         </children>
-      </Pane>
-=======
       <SplitPane prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <Pane prefHeight="521.0" prefWidth="731.0">
                <children>
-                  <TableView fx:id="tvProyectos" layoutX="1.0" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="459.0" prefWidth="608.0">
-                    <columns>
-                      <TableColumn fx:id="clNombre" prefWidth="143.0" text="NOMBRE" />
-                      <TableColumn fx:id="clInicio" prefWidth="82.0" text="INICIO" />
-                        <TableColumn fx:id="clFinal" prefWidth="90.0" text="FIN" />
-                        <TableColumn fx:id="clCliente" prefWidth="150.0" text="CLIENTE" />
-                        <TableColumn fx:id="clLider" prefWidth="194.0" text="LIDER " />
-                    </columns>
+                  <TableView fx:id="tvProyectos" layoutX="14.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#clickTableView" prefHeight="459.0" prefWidth="582.0">
+                     <columns>
+                        <TableColumn fx:id="clNombre" prefWidth="143.0" text="NOMBRE" />
+                        <TableColumn fx:id="clInicio" prefWidth="85.0" text="INICIO" />
+                        <TableColumn fx:id="clFinal" prefWidth="87.0" text="FIN" />
+                        <TableColumn fx:id="clCliente" minWidth="0.0" prefWidth="107.0" text="CLIENTE" />
+                        <TableColumn fx:id="clLider" prefWidth="153.0" text="LIDER " />
+                     </columns>
                   </TableView>
+                  <Button layoutX="881.0" layoutY="357.0" mnemonicParsing="false" onAction="#clicMedida" prefHeight="24.0" prefWidth="22.0" text="Asociar" />
+                  <Label layoutX="637.0" layoutY="294.0" text="Metrica" />
+                  <ComboBox fx:id="cbMetricas" layoutX="718.0" layoutY="290.0" onAction="#clickCb" prefHeight="25.0" prefWidth="265.0" />
+                  <Label fx:id="lblMensajeInterno" layoutX="637.0" layoutY="259.0" text="Nueva Metrica:">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="637.0" layoutY="6.0" text="Metricas asociadas:">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tvMetrica" layoutX="637.0" layoutY="36.0" prefHeight="200.0" prefWidth="347.0">
+                     <columns>
+                        <TableColumn prefWidth="191.0" text="Nombre" />
+                     </columns>
+                  </TableView>
+                  <Separator layoutX="618.0" layoutY="244.0" prefHeight="0.0" prefWidth="403.0" />
+                  <Separator layoutX="610.0" layoutY="6.0" orientation="VERTICAL" prefHeight="478.0" prefWidth="8.0" />
+                  <Label fx:id="lblM1" layoutX="637.0" layoutY="339.0" text="Label" />
+                  <Label fx:id="lblM2" layoutX="637.0" layoutY="368.0" text="Label" />
+                  <Label fx:id="lblM4" layoutX="637.0" layoutY="426.0" text="Label" />
+                  <Label fx:id="lblM3" layoutX="637.0" layoutY="397.0" text="Label" />
+                  <TextField fx:id="txtM1" layoutX="718.0" layoutY="335.0" />
+                  <TextField fx:id="txtM2" layoutX="718.0" layoutY="364.0" />
+                  <TextField fx:id="txtM3" layoutX="718.0" layoutY="393.0" />
+                  <TextField fx:id="txtM4" layoutX="718.0" layoutY="422.0" />
                </children>
-            </AnchorPane>
+            </Pane>
         </items>
       </SplitPane>
->>>>>>> 93a9055198ec10d431a01de2bb300fe86f866ddc
    </center>
 </BorderPane>

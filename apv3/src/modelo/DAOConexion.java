@@ -15,9 +15,9 @@ public class DAOConexion {
 	public DAOConexion(){
 		this.servidor="localhost";//127.0.0.1
 		this.usuario="postgres";
-		this.contrasenia="escualo";
+		this.contrasenia="utcvtic";
 		this.puerto="5432";
-		this.baseDatos="metrica";
+		this.baseDatos="Metrisoft";
 		this.ce= new ControladorErrores();
 	}
 	
